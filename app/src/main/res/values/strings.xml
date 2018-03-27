@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">PaginationRecyclerView</string>
+    <string name="load_more">LOAD MORE</string>
+</resources>
