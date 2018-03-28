@@ -1,7 +1,7 @@
 package com.example.juanj.paginationrecyclerview.data.remote;
 
 import com.example.juanj.paginationrecyclerview.BuildConfig;
-import com.example.juanj.paginationrecyclerview.models.YoutubeResponse;
+import com.example.juanj.paginationrecyclerview.data.remote.model.YoutubeResponse;
 
 import javax.inject.Inject;
 
@@ -17,7 +17,7 @@ public class CloudDataSource implements ICloudDataSource{
     private final String YOUTUBE_API_TYPE = "video";
     private final String YOUTUBE_API_PART = "snippet";
     private final String YOUTUBE_API_MAX_RESULT_PAGE = "10";
-    private final String YOUTUBE_QUERY_ALL_VIDEOS = "";
+    private final String YOUTUBE_QUERY_ALL_VIDEOS = "android development";
 
     @Inject
     Lazy<YoutubeAPI> youtubeApi;

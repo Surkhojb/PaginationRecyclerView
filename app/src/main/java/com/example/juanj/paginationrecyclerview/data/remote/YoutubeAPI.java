@@ -2,7 +2,7 @@ package com.example.juanj.paginationrecyclerview.data.remote;
 
 
 
-import com.example.juanj.paginationrecyclerview.models.YoutubeResponse;
+import com.example.juanj.paginationrecyclerview.data.remote.model.YoutubeResponse;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;

@@ -1,7 +1,7 @@
 package com.example.juanj.paginationrecyclerview.data;
 
 import com.example.juanj.paginationrecyclerview.data.remote.CloudDataSource;
-import com.example.juanj.paginationrecyclerview.models.YoutubeResponse;
+import com.example.juanj.paginationrecyclerview.data.remote.model.YoutubeResponse;
 
 import javax.inject.Inject;
 
