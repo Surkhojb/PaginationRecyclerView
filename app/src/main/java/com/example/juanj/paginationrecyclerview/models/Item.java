@@ -1,10 +1,12 @@
 package com.example.juanj.paginationrecyclerview.models;
 
+import java.io.Serializable;
+
 /**
  * Created by juanj on 27/03/2018.
  */
 
-public class Item {
+public class Item implements Serializable{
     private String kind, etag;
     private Snippet snippet;
 

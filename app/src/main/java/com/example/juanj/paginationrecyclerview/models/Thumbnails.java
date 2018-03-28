@@ -2,11 +2,13 @@ package com.example.juanj.paginationrecyclerview.models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
 /**
  * Created by juanj on 27/03/2018.
  */
 
-public  class Thumbnails {
+public  class Thumbnails implements Serializable {
     @SerializedName("default")
     private Default _default;
 

@@ -1,5 +1,6 @@
 package com.example.juanj.paginationrecyclerview.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by juanj on 27/03/2018.
  */
 
-public final class YoutubeResponse {
+public final class YoutubeResponse implements Serializable {
     private String kind, etag, nextPageToken;
     private PageInfo pageInfo;
     private List<Item> items = new ArrayList<>();

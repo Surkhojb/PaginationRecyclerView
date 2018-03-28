@@ -1,5 +1,6 @@
 package com.example.juanj.paginationrecyclerview.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -7,7 +8,7 @@ import java.util.List;
  * Created by juanj on 27/03/2018.
  */
 
-public class Snippet {
+public class Snippet implements Serializable {
     private String publishedAt, channelId, title, description, channelTitle, categoryId, liveBroadcastContent;
     private Thumbnails thumbnails;
     private List<String> tags = new ArrayList<>();
