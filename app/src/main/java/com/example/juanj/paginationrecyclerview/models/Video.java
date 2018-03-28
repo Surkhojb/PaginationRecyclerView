@@ -1,10 +1,12 @@
 package com.example.juanj.paginationrecyclerview.models;
 
+import java.io.Serializable;
+
 /**
  * Created by juanj on 28/03/2018.
  */
 
-public class Video {
+public class Video implements Serializable{
     private String videoId;
     private String title;
     private String description;
@@ -49,5 +51,16 @@ public class Video {
 
     public void setPublishedAt(String publishedAt) {
         this.publishedAt = publishedAt;
+    }
+
+    @Override
+    public String toString() {
+        return "Video{" +
+                "videoId='" + videoId + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", thumbnailHigh='" + thumbnailHigh + '\'' +
+                ", publishedAt='" + publishedAt + '\'' +
+                '}';
     }
 }

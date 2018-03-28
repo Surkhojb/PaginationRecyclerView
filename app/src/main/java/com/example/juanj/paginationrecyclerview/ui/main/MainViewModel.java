@@ -21,10 +21,11 @@ public class MainViewModel extends ViewModel {
     private String loadMoreToken = "";
     private MutableLiveData<List<Video>> listVideos = new MutableLiveData<>();
     private IVideosRepository videosRepository;
-    private VideoTransformer transformer;
+    private VideoTransformer videoTransformer;
 
-    public MainViewModel(IVideosRepository videosRepository) {
+    public MainViewModel(IVideosRepository videosRepository, VideoTransformer transformer) {
         this.videosRepository = videosRepository;
+        this.videoTransformer = transformer;
     }
 
     public LiveData<List<Video>> listVideos(){
@@ -37,7 +38,8 @@ public class MainViewModel extends ViewModel {
 
         videosRepository.getVideos(loadMoreToken).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(response -> {transformer.transform(response);
+                .subscribe(response -> {listVideos.postValue(videoTransformer.transform(response));
+
                     loadMoreToken = response.getNextPageToken();
                 });
     }

@@ -2,6 +2,7 @@ package com.example.juanj.paginationrecyclerview.di.modules;
 
 import com.example.juanj.paginationrecyclerview.data.IVideosRepository;
 import com.example.juanj.paginationrecyclerview.di.scopes.PerActivity;
+import com.example.juanj.paginationrecyclerview.models.VideoTransformer;
 import com.example.juanj.paginationrecyclerview.ui.main.MainViewModelFactory;
 
 import dagger.Module;
@@ -19,8 +20,8 @@ public class MainModule {
 
     @PerActivity
     @Provides
-    MainViewModelFactory providesFactory(IVideosRepository videosRepository){
-        return new MainViewModelFactory(videosRepository);
+    MainViewModelFactory providesFactory(IVideosRepository videosRepository, VideoTransformer transformer){
+        return new MainViewModelFactory(videosRepository,transformer);
     }
 
 }
