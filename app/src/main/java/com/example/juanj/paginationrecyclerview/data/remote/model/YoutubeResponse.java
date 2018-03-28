@@ -1,4 +1,4 @@
-package com.example.juanj.paginationrecyclerview.models;
+package com.example.juanj.paginationrecyclerview.data.remote.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -31,5 +31,16 @@ public final class YoutubeResponse implements Serializable {
 
     public List<Item> getItems() {
         return items;
+    }
+
+    @Override
+    public String toString() {
+        return "YoutubeResponse{" +
+                "kind='" + kind + '\'' +
+                ", etag='" + etag + '\'' +
+                ", nextPageToken='" + nextPageToken + '\'' +
+                ", pageInfo=" + pageInfo +
+                ", items=" + items +
+                '}';
     }
 }

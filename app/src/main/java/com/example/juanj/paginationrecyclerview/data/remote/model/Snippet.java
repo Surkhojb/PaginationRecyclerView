@@ -1,4 +1,4 @@
-package com.example.juanj.paginationrecyclerview.models;
+package com.example.juanj.paginationrecyclerview.data.remote.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -47,5 +47,20 @@ public class Snippet implements Serializable {
 
     public List<String> getTags() {
         return tags;
+    }
+
+    @Override
+    public String toString() {
+        return "Snippet{" +
+                "publishedAt='" + publishedAt + '\'' +
+                ", channelId='" + channelId + '\'' +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", channelTitle='" + channelTitle + '\'' +
+                ", categoryId='" + categoryId + '\'' +
+                ", liveBroadcastContent='" + liveBroadcastContent + '\'' +
+                ", thumbnails=" + thumbnails +
+                ", tags=" + tags +
+                '}';
     }
 }

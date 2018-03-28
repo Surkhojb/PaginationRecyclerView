@@ -1,4 +1,4 @@
-package com.example.juanj.paginationrecyclerview.models;
+package com.example.juanj.paginationrecyclerview.data.remote.model;
 
 import java.io.Serializable;
 
@@ -15,5 +15,13 @@ public class PageInfo implements Serializable{
 
     public int getResultsPerPage() {
         return resultsPerPage;
+    }
+
+    @Override
+    public String toString() {
+        return "PageInfo{" +
+                "totalResults=" + totalResults +
+                ", resultsPerPage=" + resultsPerPage +
+                '}';
     }
 }
