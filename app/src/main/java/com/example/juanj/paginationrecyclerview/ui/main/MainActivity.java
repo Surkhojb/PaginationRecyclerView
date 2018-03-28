@@ -63,8 +63,8 @@ public class MainActivity extends AppCompatActivity implements OnRecyclerItemCli
         rvList.setLayoutManager(layoutManager);
         rvList.setItemAnimator(new DefaultItemAnimator());
         rvAdapter = new VideosAdapter();
+        rvAdapter.setRecyclerItemClicked(this);
         rvList.setAdapter(rvAdapter);
-
         rvList.addOnScrollListener(new OnLoadMoreListener(layoutManager) {
             @Override
             public void loadMoreData() {

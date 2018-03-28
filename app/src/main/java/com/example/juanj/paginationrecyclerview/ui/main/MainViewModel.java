@@ -5,10 +5,10 @@ import android.arch.lifecycle.MutableLiveData;
 import android.arch.lifecycle.ViewModel;
 
 import com.example.juanj.paginationrecyclerview.data.IVideosRepository;
-import com.example.juanj.paginationrecyclerview.models.Item;
+import com.example.juanj.paginationrecyclerview.models.Video;
+import com.example.juanj.paginationrecyclerview.models.VideoTransformer;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.schedulers.Schedulers;
@@ -19,14 +19,15 @@ import io.reactivex.schedulers.Schedulers;
 
 public class MainViewModel extends ViewModel {
     private String loadMoreToken = "";
-    private MutableLiveData<List<Item>> listVideos = new MutableLiveData<>();
+    private MutableLiveData<List<Video>> listVideos = new MutableLiveData<>();
     private IVideosRepository videosRepository;
+    private VideoTransformer transformer;
 
     public MainViewModel(IVideosRepository videosRepository) {
         this.videosRepository = videosRepository;
     }
 
-    public LiveData<List<Item>> listVideos(){
+    public LiveData<List<Video>> listVideos(){
         return listVideos;
     }
 
@@ -36,10 +37,8 @@ public class MainViewModel extends ViewModel {
 
         videosRepository.getVideos(loadMoreToken).subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(youtubeResponse -> {
-                    listVideos.setValue(youtubeResponse.getItems());
-                    loadMoreToken = youtubeResponse.getNextPageToken();
-                    System.out.println("NEXT TOKEN: " + loadMoreToken);
+                .subscribe(response -> {transformer.transform(response);
+                    loadMoreToken = response.getNextPageToken();
                 });
     }
 }

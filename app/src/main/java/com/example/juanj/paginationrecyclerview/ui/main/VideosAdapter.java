@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.juanj.paginationrecyclerview.R;
-import com.example.juanj.paginationrecyclerview.models.Item;
+import com.example.juanj.paginationrecyclerview.models.Video;
 import com.example.juanj.paginationrecyclerview.ui.utils.OnRecyclerItemClicked;
 
 import java.util.ArrayList;
@@ -25,7 +25,7 @@ import butterknife.ButterKnife;
 
 public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder> {
 
-    private List<Item> videos;
+    private List<Video> videos;
     private OnRecyclerItemClicked onRecyclerItemClicked;
 
     public VideosAdapter() {
@@ -48,7 +48,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
         return videos.size();
     }
 
-    public void refreshData(List<Item> items){
+    public void refreshData(List<Video> items){
         if(items != null)
             videos.addAll(items);
         notifyItemChanged(videos.size() - 1 );
@@ -58,7 +58,7 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
         this.onRecyclerItemClicked = listener;
     }
 
-    public Item getVideo(int position) {
+    public Video getVideo(int position) {
         return videos.get(position);
     }
 
@@ -79,11 +79,11 @@ public class VideosAdapter extends RecyclerView.Adapter<VideosAdapter.ViewHolder
             ButterKnife.bind(this,itemView);
         }
 
-        public void bind(Item item,int num) {
-            itemTitle.setText(item.getSnippet().getTitle());
-            itemDate.setText(item.getSnippet().getPublishedAt());
+        public void bind(Video item, int num) {
+            itemTitle.setText(item.getTitle());
+            itemDate.setText(item.getPublishedAt());
             itemNum.setText(String.format("%d / %d",num,getItemCount()));
-            Glide.with(itemLogo.getContext()).load(item.getSnippet().getThumbnails().getDefault().getUrl()).into(itemLogo);
+            Glide.with(itemLogo.getContext()).load(item.getThumbnailHigh()).into(itemLogo);
             itemCard.setOnClickListener(this);
         }
 
